@@ -50,16 +50,26 @@
           </div>
         </div>
         <div class="reservation-form--dates">
-          <div class="date-from">Check In</div>
-          <div>
-            <svg width="24" height="24" fill-rule="evenodd" clip-rule="evenodd">
-              <path
-                d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"
-              />
-            </svg>
+          <p class="mb-3 mt-5 font-semibold">Dates</p>
+          <div class="reservation-form--dates--inner">
+            <div class="date-from">Check In</div>
+            <div>
+              <svg
+                width="24"
+                height="24"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              >
+                <path
+                  d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"
+                />
+              </svg>
+            </div>
+            <div class="date-to">Check Out</div>
           </div>
-          <div class="date-to">Check Out</div>
         </div>
+        <p></p>
+
         <button class="btn btn__submit">Check availability</button>
       </div>
     </div>
@@ -94,8 +104,8 @@ export default {
     @apply border-b border-gray-300 pb-5;
   }
 
-  &--dates {
-    @apply mt-5 border border-gray-300 p-3 flex items-center justify-between text-xl text-gray-500;
+  &--dates--inner {
+    @apply border border-gray-300 p-3 flex items-center justify-between text-xl text-gray-500;
   }
 
   &--price {
@@ -129,5 +139,10 @@ export default {
 
 .btn {
   @apply inline-block bg-red-600 p-4 w-full rounded-lg mt-5 text-white font-semibold text-lg hover:opacity-80;
+}
+
+.date-from,
+.date-to {
+  @apply cursor-pointer hover:opacity-80;
 }
 </style>
