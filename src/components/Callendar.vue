@@ -1,19 +1,7 @@
-<template>
-  <div>Callendar component</div>
-</template>
+<template>Callendar box</template>
 
 <script>
-export default {
-  props: [
-    "price",
-    "rating",
-    "votes",
-    "available-dates",
-    "unavailable-dates",
-    "selected-dates",
-    "today",
-  ],
-};
+export default {};
 </script>
 
 <style></style>

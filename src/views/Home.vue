@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Callendar
+    <ReservationForm
       price="123"
       rating="4.12"
       votes="234"
@@ -13,12 +13,18 @@
 </template>
 
 <script>
-import Callendar from "@/components/Callendar.vue";
+import ReservationForm from "../components/ReservationForm.vue";
 
 export default {
   name: "Home",
   components: {
-    Callendar,
+    ReservationForm,
   },
 };
 </script>
+
+<style scoped lang="scss">
+.home {
+  @apply flex items-center justify-center pt-10;
+}
+</style>
