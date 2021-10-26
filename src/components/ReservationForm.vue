@@ -52,7 +52,7 @@
         <div class="reservation-form--dates">
           <p class="mb-3 mt-5 font-semibold">Dates</p>
           <div class="reservation-form--dates--inner">
-            <div class="date-from">Check In</div>
+            <div @click="callendarVisibility" class="date-from">Check In</div>
             <div>
               <svg
                 width="24"
@@ -65,18 +65,22 @@
                 />
               </svg>
             </div>
-            <div class="date-to">Check Out</div>
+            <div @click="callendarVisibility" class="date-to">Check Out</div>
+          </div>
+          <div v-if="isCallendarVisible" class="callendar-box">
+            <Callendar />
           </div>
         </div>
         <p></p>
 
-        <button class="btn btn__submit">Check availability</button>
+        <div class="btn btn__submit">Check availability</div>
       </div>
     </div>
   </form>
 </template>
 
 <script>
+import Callendar from "./Callendar.vue";
 export default {
   props: [
     "price",
@@ -87,6 +91,17 @@ export default {
     "selected-dates",
     "today",
   ],
+  components: { Callendar },
+  data() {
+    return {
+      isCallendarVisible: false,
+    };
+  },
+  methods: {
+    callendarVisibility() {
+      this.isCallendarVisible = !this.isCallendarVisible;
+    },
+  },
 };
 </script>
 
@@ -115,6 +130,16 @@ export default {
   &--rating {
     @apply flex items-center justify-start;
   }
+
+  &--dates {
+    @apply relative;
+
+    .callendar-box {
+      @apply border border-red-600 absolute top-24 bg-blue-50 z-10;
+      width: 90%;
+      left: 5%;
+    }
+  }
 }
 
 .stars {
@@ -138,11 +163,19 @@ export default {
 }
 
 .btn {
-  @apply inline-block bg-red-600 p-4 w-full rounded-lg mt-5 text-white font-semibold text-lg hover:opacity-80;
+  @apply inline-block bg-red-600 p-4 w-full rounded-lg mt-5 text-white text-center cursor-pointer font-semibold text-lg hover:opacity-80;
+
+  &::selection {
+    @apply bg-transparent;
+  }
 }
 
 .date-from,
 .date-to {
   @apply cursor-pointer hover:opacity-80;
+  &::selection {
+    @apply bg-transparent;
+    outline: none;
+  }
 }
 </style>
