@@ -1,18 +1,24 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Callendar
+      price="123"
+      rating="4.12"
+      votes="234"
+      available-dates=""
+      unavailable-dates=""
+      selected-dates=""
+      today=""
+    />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import Callendar from "@/components/Callendar.vue";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld,
+    Callendar,
   },
 };
 </script>
